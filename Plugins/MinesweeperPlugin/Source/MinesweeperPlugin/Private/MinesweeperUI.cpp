@@ -224,11 +224,11 @@ TArray<int32> MinesweeperUI::GetTilesAround(int32 Index)
 	{
 		for (int32 YOffset = -1; YOffset < 2; YOffset++)
 		{
-			if (XOffset == 0 && YOffset == 0)
+			int32 Index = (Y + YOffset)*Width + X + XOffset;
+			if (XOffset == 0 && YOffset == 0 || Index/Width != Y + YOffset)
 			{
 				continue;
 			}
-			int32 Index = (Y + YOffset)*Width + X + XOffset;
 			if (Index >= 0 && Index < Width*Height)
 			{
 				OutArray.Add(Index);
